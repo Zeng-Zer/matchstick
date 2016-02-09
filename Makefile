@@ -5,7 +5,7 @@
 ## Login   <zeng_d@epitech.net>
 ##
 ## Started on  Mon Oct 12 13:31:18 2015 David Zeng
-## Last update Tue Feb  9 01:54:47 2016 David Zeng
+## Last update Tue Feb  9 03:57:57 2016 David Zeng
 ##
 
 SRC	= main.c \
@@ -13,6 +13,7 @@ SRC	= main.c \
 	  object/allum.c \
 	  my_loop.c \
 	  my_player_turn.c \
+	  my_ia_turn.c \
 
 NAME	= allum1
 

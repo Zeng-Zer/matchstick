@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Tue Feb  9 02:23:46 2016 David Zeng
+** Last update Tue Feb  9 04:44:33 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -35,6 +35,7 @@ int		my_check_allum(t_allum *allumette, int row)
       player_turn(allumette);
       return (-1);
     }
+  free(tmp);
   return (allum);
 }
 
@@ -60,6 +61,7 @@ int		my_check_row(t_allum *allumette)
       player_turn(allumette);
       return (-1);
     }
+  free(tmp);
   return (row);
 }
 
