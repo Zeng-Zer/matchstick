@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Tue Feb  9 04:44:33 2016 David Zeng
+** Last update Wed Feb 10 16:23:25 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -72,7 +72,13 @@ void		player_turn(t_allum *allumette)
 
   if ((row = my_check_row(allumette)) == -1)
     return;
-  if ((allum = my_check_allum(allumette, row)) == -1)
+  if (allumette->nb_allum[row - 1] == 0)
+    {
+      my_printf("Error: this line is empty\n");
+      player_turn(allumette);
+      return;
+    }
+ if ((allum = my_check_allum(allumette, row)) == -1)
     return;
   allumette->take_allum(allumette, allum, row);
   my_printf("Player removed %d match(es) from line %d\n", allum, row);
