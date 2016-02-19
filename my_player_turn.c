@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Wed Feb 17 16:35:50 2016 David Zeng
+** Last update Sat Feb 20 00:10:14 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -16,6 +16,13 @@ void		my_do_error(t_allum *allumette, char *tmp)
   player_turn(allumette);
 }
 
+int		my_match_error(t_allum *allumette, char *tmp)
+{
+  my_printf("\nError: invalid input (positive number expected)\n");
+  my_do_error(allumette, tmp);
+  return (-1);
+}
+
 int		my_check_allum(t_allum *allumette, int row)
 {
   char		*tmp;
@@ -23,10 +30,7 @@ int		my_check_allum(t_allum *allumette, int row)
 
   my_printf("Matches: ");
   if ((tmp = get_next_line(0)) == NULL)
-    {
-      my_do_error(allumette, tmp);
-      return (-1);
-    }
+    return (my_match_error(allumette, tmp));
   if (my_strcmp(tmp, "") == 0 || (allum = my_getnbr_err(tmp)) < 0)
     {
       my_printf("Error: invalid input (positive number expected)\n");
