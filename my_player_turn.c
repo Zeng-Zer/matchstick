@@ -5,10 +5,16 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Wed Feb 10 16:20:19 2016 David Zeng
+** Last update Wed Feb 17 16:35:50 2016 David Zeng
 */
 
 #include "my_fonction.h"
+
+void		my_do_error(t_allum *allumette, char *tmp)
+{
+  free(tmp);
+  player_turn(allumette);
+}
 
 int		my_check_allum(t_allum *allumette, int row)
 {
@@ -17,12 +23,14 @@ int		my_check_allum(t_allum *allumette, int row)
 
   my_printf("Matches: ");
   if ((tmp = get_next_line(0)) == NULL)
-    return (-1);
-  if ((allum = my_getnbr_err(tmp)) < 0)
+    {
+      my_do_error(allumette, tmp);
+      return (-1);
+    }
+  if (my_strcmp(tmp, "") == 0 || (allum = my_getnbr_err(tmp)) < 0)
     {
       my_printf("Error: invalid input (positive number expected)\n");
-      free(tmp);
-      player_turn(allumette);
+      my_do_error(allumette, tmp);
       return (-1);
     }
   else if (allum == 0 || allum > (int)allumette->nb_allum[row - 1])
@@ -31,8 +39,7 @@ int		my_check_allum(t_allum *allumette, int row)
 	my_printf("Error: you have to remove at least one match\n");
       else if (allum > (int)allumette->nb_allum[row - 1])
 	my_printf("Error: not enough matches on this line\n");
-      free(tmp);
-      player_turn(allumette);
+      my_do_error(allumette, tmp);
       return (-1);
     }
   free(tmp);
@@ -46,19 +53,21 @@ int		my_check_row(t_allum *allumette)
 
   my_printf("Line: ");
   if ((tmp = get_next_line(0)) == NULL)
-    return (-1);
-  if ((row = my_getnbr_err(tmp)) < 0)
+    {
+      my_printf("\nError: invalid input (positive number expected)\n");
+      my_do_error(allumette, tmp);
+      return (-1);
+    }
+  if (my_strcmp(tmp, "") == 0 || (row = my_getnbr_err(tmp)) < 0)
     {
       my_printf("Error: invalid input (positive number expected)\n");
-      free(tmp);
-      player_turn(allumette);
+      my_do_error(allumette, tmp);
       return (-1);
     }
   else if (row == 0 || row > (int)allumette->row)
     {
       my_printf("Error: this line is out of range\n");
-      free(tmp);
-      player_turn(allumette);
+      my_do_error(allumette, tmp);
       return (-1);
     }
   free(tmp);
