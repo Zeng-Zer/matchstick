@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Nov 30 15:49:28 2015 David Zeng
-** Last update Tue Feb  9 03:31:44 2016 David Zeng
+** Last update Sat Feb 20 16:21:52 2016 David Zeng
 */
 
 #include "my.h"
@@ -18,7 +18,7 @@
 # define IA 1
 
 void		my_loop(t_allum *allumette);
-void		player_turn(t_allum *allumette);
+int		player_turn(t_allum *allumette);
 void		ai_turn(t_allum *allumette);
 
 #endif /* !MY_FONCTION_H_ */

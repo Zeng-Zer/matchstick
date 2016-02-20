@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Sat Feb 20 00:10:14 2016 David Zeng
+** Last update Sat Feb 20 16:26:31 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -18,9 +18,9 @@ void		my_do_error(t_allum *allumette, char *tmp)
 
 int		my_match_error(t_allum *allumette, char *tmp)
 {
-  my_printf("\nError: invalid input (positive number expected)\n");
-  my_do_error(allumette, tmp);
-  return (-1);
+  free(tmp);
+  (void)allumette;
+  return (-2);
 }
 
 int		my_check_allum(t_allum *allumette, int row)
@@ -58,9 +58,8 @@ int		my_check_row(t_allum *allumette)
   my_printf("Line: ");
   if ((tmp = get_next_line(0)) == NULL)
     {
-      my_printf("\nError: invalid input (positive number expected)\n");
-      my_do_error(allumette, tmp);
-      return (-1);
+      free(tmp);
+      return (-2);
     }
   if (my_strcmp(tmp, "") == 0 || (row = my_getnbr_err(tmp)) < 0)
     {
@@ -78,21 +77,26 @@ int		my_check_row(t_allum *allumette)
   return (row);
 }
 
-void		player_turn(t_allum *allumette)
+int		player_turn(t_allum *allumette)
 {
   int		allum;
   int		row;
 
   if ((row = my_check_row(allumette)) == -1)
-    return;
+    return (0);
+  else if (row == -2)
+    return (1);
   if (allumette->nb_allum[row - 1] == 0)
     {
       my_printf("Error: this line is empty\n");
       player_turn(allumette);
-      return;
+      return (0);
     }
   if ((allum = my_check_allum(allumette, row)) == -1)
-    return;
+    return (0);
+  else if (allum == -2)
+    return (1);
   allumette->take_allum(allumette, allum, row);
   my_printf("Player removed %d match(es) from line %d\n", allum, row);
+  return (0);
 }
