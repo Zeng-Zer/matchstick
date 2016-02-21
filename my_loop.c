@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Feb  8 23:34:20 2016 David Zeng
-** Last update Sat Feb 20 16:23:37 2016 David Zeng
+** Last update Sun Feb 21 19:27:00 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -43,7 +43,7 @@ void		my_loop(t_allum *allumette)
       if (player == YOU)
 	{
 	  my_printf("Your turn:\n");
-	  if (player_turn(allumette) == 1)
+	  if (player_turn(allumette) == 1 || allumette->end == 1)
 	    return;
 	  player = IA;
 	}

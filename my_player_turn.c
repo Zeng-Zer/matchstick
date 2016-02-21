@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Tue Feb  9 01:34:39 2016 David Zeng
-** Last update Sat Feb 20 16:26:31 2016 David Zeng
+** Last update Sun Feb 21 19:26:38 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -18,6 +18,7 @@ void		my_do_error(t_allum *allumette, char *tmp)
 
 int		my_match_error(t_allum *allumette, char *tmp)
 {
+  allumette->end = 1;
   free(tmp);
   (void)allumette;
   return (-2);
@@ -58,6 +59,7 @@ int		my_check_row(t_allum *allumette)
   my_printf("Line: ");
   if ((tmp = get_next_line(0)) == NULL)
     {
+      allumette->end = 1;
       free(tmp);
       return (-2);
     }

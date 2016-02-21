@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Feb  8 15:53:29 2016 David Zeng
-** Last update Tue Feb  9 02:25:29 2016 David Zeng
+** Last update Sun Feb 21 19:25:52 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -88,6 +88,7 @@ t_allum		*new_allum(unsigned int nb_row)
       i = i + 1;
     }
   new->col = len;
+  new->end = 0;
   new->show_allum = &my_show_allum;
   new->take_allum = &my_take_allum;
   new->dest_allum = &my_dest_allum;

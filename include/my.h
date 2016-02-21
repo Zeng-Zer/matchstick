@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Thu Oct  8 14:34:15 2015 David Zeng
-** Last update Tue Feb  9 01:53:46 2016 David Zeng
+** Last update Sun Feb 21 19:03:21 2016 David Zeng
 */
 
 #include <stdarg.h>
@@ -17,7 +17,7 @@
 /* MY_H */
 
 #ifndef READ_SIZE
-# define READ_SIZE (256)
+# define READ_SIZE (1024)
 #endif /* !READ_SIZE */
 
 void	my_putchar(char c);
