@@ -5,14 +5,13 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Thu Oct  8 14:34:15 2015 David Zeng
-** Last update Sun Feb 21 19:03:21 2016 David Zeng
+** Last update Fri Mar 18 14:05:00 2016 David Zeng
 */
-
-#include <stdarg.h>
 
 #ifndef MY_H_
 # define MY_H_
 
+#include <stdarg.h>
 
 /* MY_H */
 
@@ -42,7 +41,6 @@ char	*my_strndup(char *str, int nb);
 int	my_tablen(char **tab);
 char	*get_next_line(const int fd);
 char	*my_realloc(char *pointer, unsigned int size);
-
 
 /* MY_PRINTF */
 

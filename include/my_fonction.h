@@ -5,14 +5,15 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Nov 30 15:49:28 2015 David Zeng
-** Last update Sat Feb 20 16:21:52 2016 David Zeng
+** Last update Fri Mar 18 14:09:52 2016 David Zeng
 */
-
-#include "my.h"
-#include "object.h"
 
 #ifndef MY_FONCTION_H_
 # define MY_FONCTION_H_
+
+# include <stdlib.h>
+# include "my.h"
+# include "allum.h"
 
 # define YOU 0
 # define IA 1

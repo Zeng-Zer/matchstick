@@ -5,11 +5,10 @@
 ## Login   <zeng_d@epitech.net>
 ##
 ## Started on  Mon Oct 12 13:31:18 2015 David Zeng
-## Last update Tue Feb  9 03:57:57 2016 David Zeng
+## Last update Fri Mar 18 14:10:10 2016 David Zeng
 ##
 
 SRC	= main.c \
-	  object/string.c \
 	  object/allum.c \
 	  my_loop.c \
 	  my_player_turn.c \

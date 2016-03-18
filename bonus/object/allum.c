@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Feb  8 15:53:29 2016 David Zeng
-** Last update Wed Feb 10 15:32:17 2016 David Zeng
+** Last update Sun Feb 21 19:25:52 2016 David Zeng
 */
 
 #include "my_fonction.h"
@@ -68,7 +68,7 @@ static void	my_dest_allum(t_allum *this)
   free(this);
 }
 
-t_allum		*new_allum(int nb_row)
+t_allum		*new_allum(unsigned int nb_row)
 {
   t_allum	*new;
   unsigned int	i;
@@ -76,20 +76,19 @@ t_allum		*new_allum(int nb_row)
 
   i = 0;
   len = 1;
-  if (nb_row == -1)
-    return (NULL);
   if ((new = malloc(sizeof(t_allum))) == NULL)
     return (NULL);
   if ((new->nb_allum = malloc(sizeof(int) * nb_row)) == NULL)
     return (NULL);
   new->row = nb_row;
-  while (i < (unsigned)nb_row)
+  while (i < nb_row)
     {
       new->nb_allum[i] = len;
       len = len + 2;
       i = i + 1;
     }
   new->col = len;
+  new->end = 0;
   new->show_allum = &my_show_allum;
   new->take_allum = &my_take_allum;
   new->dest_allum = &my_dest_allum;

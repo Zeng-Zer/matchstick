@@ -5,7 +5,7 @@
 ** Login   <zeng_d@epitech.net>
 **
 ** Started on  Mon Feb  8 14:48:08 2016 David Zeng
-** Last update Wed Feb 10 15:32:28 2016 David Zeng
+** Last update Sun Feb 21 19:25:42 2016 David Zeng
 */
 
 #ifndef ALLUM_H
@@ -18,11 +18,12 @@ struct			s_allum
   unsigned int		row;
   unsigned int		col;
   unsigned int		*nb_allum;
+  int			end;
   void			(*show_allum)(t_allum *this);
   void			(*take_allum)(t_allum *this, int allum, int row);
   void			(*dest_allum)(t_allum *this);
 };
 
-t_allum			*new_allum(int nb_row);
+t_allum			*new_allum(unsigned int nb_row);
 
 #endif	/* !ALLUM_H */
