@@ -29,16 +29,16 @@ PATHS	= ./lib/my/
 all: 	  ./lib/$(LIB) $(NAME)
 
 $(NAME):  $(OBJ)
-	  @$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+	  $(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 
 ./lib/$(LIB):
-	  @$(MAKE) -C $(PATHS) yo
+	  $(MAKE) -C $(PATHS) yo
 
 clean:
-	  @rm -f $(OBJ)
+	  rm -f $(OBJ)
 
 fclean:	  clean
-	  @rm -f $(NAME)
+	  rm -f $(NAME)
 
 re:	  fclean all
 
